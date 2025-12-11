@@ -1,0 +1,71 @@
+.noticeBoard {
+    width: 300px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    font-family: var(--font-sans);
+}
+
+.header {
+    background: var(--accent);
+    color: white;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.closeBtn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.closeBtn:hover {
+    opacity: 1;
+}
+
+.list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.item {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    transition: background-color 0.2s;
+}
+
+.item:hover {
+    background-color: #f8fafc;
+}
+
+.link {
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.date {
+    font-size: 0.75rem;
+    color: var(--muted);
+}
