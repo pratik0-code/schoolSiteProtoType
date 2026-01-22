@@ -27,6 +27,6 @@ const NoticeSchema: Schema = new Schema({
 });
 
 // Prevent model overwrite upon initial compile
-const Notice: Model<INotice> = mongoose.models.Notice || mongoose.model<INotice>("Notice", NoticeSchema, "notice");
+const Notice: Model<INotice> = mongoose.models.Notice || mongoose.model<INotice>("Notice", NoticeSchema);
 
 export default Notice;
