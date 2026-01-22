@@ -1,6 +1,16 @@
 "use client";
 
 import styles from "./Gallery.module.css";
+import Image from "next/image";
+
+const galleryImages = [
+    { src: "/images/exterior.png", alt: "School Exterior" },
+    { src: "/images/classroom.png", alt: "Classroom Learning" },
+    { src: "/images/sports.png", alt: "Sports Activities" },
+    { src: "/images/exterior.png", alt: "School Campus" },
+    { src: "/images/classroom.png", alt: "Interactive Session" },
+    { src: "/images/sports.png", alt: "Playground Fun" },
+];
 
 export default function Gallery() {
     return (
@@ -12,10 +22,16 @@ export default function Gallery() {
                 </div>
 
                 <div className={styles.grid}>
-                    {[1, 2, 3, 4, 5, 6].map((item) => (
-                        <div key={item} className={styles.placeholderItem}>
+                    {galleryImages.map((image, index) => (
+                        <div key={index} className={styles.placeholderItem}>
+                            <Image
+                                src={image.src}
+                                alt={image.alt}
+                                fill
+                                style={{ objectFit: "cover" }}
+                            />
                             <div className={styles.overlay}>
-                                <span>Event Photo {item}</span>
+                                <span>{image.alt}</span>
                             </div>
                         </div>
                     ))}

@@ -3,15 +3,27 @@
 import { motion } from "framer-motion";
 import styles from "./Notice.module.css";
 import { X, Bell } from "lucide-react";
-import { useState } from "react";
-
-const notices = [
-    { id: 1, title: "Entrance Result Declared", date: "27 Nov 2025" },
-    { id: 2, title: "2nd term exam happening soon", date: "10 Nov 2025" },
-];
+import { useState, useEffect } from "react";
 
 export default function Notice() {
     const [isVisible, setIsVisible] = useState(true);
+    const [notices, setNotices] = useState<{ _id: string, title: string, date: string }[]>([]);
+
+    useEffect(() => {
+        const fetchNotices = async () => {
+            try {
+                const res = await fetch("/api/notices");
+                const data = await res.json();
+                if (data.success) {
+                    setNotices(data.data);
+                }
+            } catch (error) {
+                console.error("Failed to fetch notices", error);
+            }
+        };
+
+        fetchNotices();
+    }, []);
 
     if (!isVisible) return null;
 
@@ -31,7 +43,7 @@ export default function Notice() {
             </div>
             <div className={styles.list}>
                 {notices.map((notice) => (
-                    <div key={notice.id} className={styles.item}>
+                    <div key={notice._id} className={styles.item}>
                         <a href="#" className={styles.link}>{notice.title}</a>
                         <span className={styles.date}>{notice.date}</span>
                     </div>
