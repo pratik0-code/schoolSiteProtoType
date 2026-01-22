@@ -8,7 +8,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Lumina Academy | Excellence in Education",
+  title: "ABC School | Excellence is our prime motto",
   description: "A place where future leaders are born.",
 };
 
